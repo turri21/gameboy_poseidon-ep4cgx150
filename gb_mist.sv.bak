@@ -690,14 +690,11 @@ end
 wire pll_locked;
 wire clk64;
 pll pll (
-	 .inclk0(CLOCK_50),
+	 .inclk0(CLOCK_27),
 	 .c0(clk64),        // 4*16.777216 MHz
 	 .locked(pll_locked)
 );
-`ifdef POSEIDON_GX150
-assign SDRAM_CLK = ~clk64;
-`else
+
 assign SDRAM_CLK = clk64;
-`endif
 
 endmodule

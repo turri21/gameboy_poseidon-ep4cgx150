@@ -1,0 +1,19 @@
+
+
+F:/FPGA-POSEIDON-2025/New folder/gameboy/pll.v
+
+Feb 20 06AM:39:15>: Error in CNX file format.
+
+Error messages are listed in file
+F:/FPGA-POSEIDON-2025/New folder/gameboy/pll.cnxerr.
+
+Can't create the custom megafunction variation file(s)
+
+F:/FPGA-POSEIDON-2025/New folder/gameboy/pll.v
+
+Feb 20 06AM:41:12>: Error in CNX file format.
+
+Error messages are listed in file
+F:/FPGA-POSEIDON-2025/New folder/gameboy/pll.cnxerr.
+
+Can't create the custom megafunction variation file(s)
