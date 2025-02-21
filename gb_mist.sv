@@ -557,7 +557,7 @@ sigma_delta_dac dac (
 	.clk		( clk64 			),
 	.ldatasum	( {~audio_left[15], audio_left[14:1]} ),
 	.rdatasum	( {~audio_right[15], audio_right[14:1]}	),
-	.left		( AUDIO_L			),
+	.left		   ( AUDIO_L			),
 	.right		( AUDIO_R			)
 );
 
@@ -694,8 +694,32 @@ pll pll (
 	 .c0(clk64),        // 4*16.777216 MHz
 	 .locked(pll_locked)
 );
+
 `ifdef POSEIDON_GX150
-assign SDRAM_CLK = ~clk64;
+altddio_out
+#(
+        .extend_oe_disable("OFF"),
+        .intended_device_family("Cyclone IV GX"),
+        .invert_output("OFF"),
+        .lpm_hint("UNUSED"),
+        .lpm_type("altddio_out"),
+        .oe_reg("UNREGISTERED"),
+        .power_up_high("OFF"),
+        .width(1)
+)
+sdramclk_ddr
+(
+        .datain_h(1'b0),
+        .datain_l(1'b1),
+        .outclock(clk64),
+        .dataout(SDRAM_CLK),
+        .aclr(1'b0),
+        .aset(1'b0),
+        .oe(1'b1),
+        .outclocken(1'b1),
+        .sclr(1'b0),
+        .sset(1'b0)
+);
 `else
 assign SDRAM_CLK = clk64;
 `endif
