@@ -1,3 +1,9 @@
+-=(Poseidon notes)=-
+
+Required for proper cartridge loading:
+set_global_assignment -name VERILOG_MACRO "NO_DIRECT_UPLOAD=1"
+
+___
 Source code for Gameboy for MIST
 ================================
 
